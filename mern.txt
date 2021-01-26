@@ -1,0 +1,47 @@
+jQuery (library)
+
+
+React  is built on the idea of components - modularized parts of a website that are broken up in order to achieve a more organized code base. (library)
+
+Angular (framework) takes control of how you structure your web app by creating a folder structure out of the bag, and you can use to CLI to quickly scaffold new components. 
+
+lso works using components like React, but uses Typescript
+
+DOM: document object model
+CLI: command line interface
+JSX: java script xml
+ES6: ECMAJavascript 
+
+JavaScript is run runs one command at a time through the event loop which is a specalized queue that allows Js  to add new operations when events happen while pther operations are already running
+
+***JavaScript is the language, ECMAScript is the standard.
+
+let allows for reassignment
+const is immutable (must assign a value at creation and that value may not change for the life of the variable.)
+
+Js interpreter breaks that down into two steps (parses the code & runs the code)
+
+Key Rules of Hoisting
+• Variable declarations (var) rise to the top of their scope like hot air balloons.
+
+• Functions create their own scope and act like cages, preventing declarations from rising out.
+
+• Assignments, or = signs, act like anchors. They stay put, no matter how the code is rearranged.
+
+• let and const do not get hoisted,  and will throw an error if called before they are declared. const will even throw a syntax error if it is called before it is assigned.
+
+
+Axsios library --> frontend
+Express library --> backend
+MongoDB (non relational database) --> database
+Mongoose.js for ORM(Object relational model)
+Socket.io (deployment)
+
+
+== checks value
+=== checks value and data type
+
+ES6 
+let 
+const
+anonymous function
