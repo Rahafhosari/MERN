@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+import MyNewComponent from './components/MyNewComponent';
+import Test from './components/Header';
 function App() {
   return (
     <>
@@ -29,6 +31,20 @@ function App() {
       <li>Run a marathon</li>
       <li>Feed the cats</li>
     </ul>
+
+    <MyNewComponent someText={"Hello World!"}
+      someText={"This Component is being re-used"}/>
+    <Test
+      lastName={ "Hosari" }
+      firstName={ "Rahaf" }
+      age={ 25 }
+      hairColor={ "Black" } />
+    
+    {/* <Test props="firstName" props={ 67 }/>  */}
+    {/* //Valid. We can send normal strings, but in numbers need curly braces */}
+    {/* <Test props={ "firstName" } props={ 67 }/>  */}
+    {/* //Valid. A String is still a Javascript expression */}
+
     </>
   );
 }
