@@ -23,6 +23,8 @@ class Test extends Component {
                 <h4> Age: {age} </h4>
                 <h4> Hair Color : {hairColor} </h4>
                 <button onClick={this.addAge}>Birthday Button for {firstName} {lastName} </button>
+                {/* <button onClick={()=> this.addAge}>Birthday Button for {firstName} {lastName} </button> if we declared addAge() as this*/}
+
             </div>
         );
     }
