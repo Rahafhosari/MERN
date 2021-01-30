@@ -32,14 +32,20 @@ function App() {
       <li>Feed the cats</li>
     </ul>
 
-    <MyNewComponent someText={"Hello World!"}
-      someText={"This Component is being re-used"}/>
+    <MyNewComponent someText={"Hello World!"} />
+    <MyNewComponent someText={"This Component is being re-used"}/>
     <Test
       lastName={ "Hosari" }
       firstName={ "Rahaf" }
       age={ 25 }
-      hairColor={ "Black" } />
-    
+      hairColor={ "Black" }
+      />
+      <Test 
+      lastName={ "Hosari" }
+      firstName={ "Jeries" }
+      age={ 23 }
+      hairColor={ "Brown" }
+      />
     {/* <Test props="firstName" props={ 67 }/>  */}
     {/* //Valid. We can send normal strings, but in numbers need curly braces */}
     {/* <Test props={ "firstName" } props={ 67 }/>  */}
