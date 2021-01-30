@@ -4,11 +4,7 @@ class Test extends Component {
     constructor (props) {
         super(props);
         this.state = { 
-            firstName : this.props.firstName,
-            lastName: this.props.lastName,
             age: this.props.age,
-            hairColor: this.props.hairColor
-
         };
     }
     addAge = () => {
@@ -17,7 +13,8 @@ class Test extends Component {
             age: this.state.age += 1});
     }
     render() {
-        const { firstName, lastName, age, hairColor } = this.state;
+        const { firstName, lastName,hairColor } = this.props;
+        const { age } = this.state;
         
         return (
             <div>
