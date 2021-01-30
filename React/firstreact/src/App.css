@@ -1,5 +1,59 @@
 .App {
   text-align: center;
+  background-color: rgb(41, 150, 150);
+  width: 950px;
+  height: fit-content;
+  margin: 0px auto;
+  display: block;
+}
+
+.app{
+  text-align: center;
+  background-color: rgb(41, 150, 150);
+  width: 950px;
+  height: fit-content;
+  margin: 0px auto;
+  display: block;
+  padding: 10px;
+}
+
+.head{
+  min-height: 150px;
+  background-color: green;
+  display: block;
+  border: 10px; 
+  margin: 15px;  
+}
+
+.nav{
+  min-height: 300px;
+  width: 200px;
+  background-color: blue;
+  display: inline-block;
+  vertical-align: top;
+}
+.main{
+  min-height: 200px;
+  width: 685px;
+  background-color: red;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sub{
+  min-height: 120px;
+  width: 120px;
+  margin:10px;
+  padding:35px;
+  background-color: yellow;
+  display: inline-block;
+}
+.adv{
+  min-height: 120px;
+  width: 610px;
+  background-color: purple;
+  vertical-align: top;
+  margin-bottom: 45px;
 }
 
 .App-logo {
