@@ -19,41 +19,43 @@
 
 .head{
   min-height: 150px;
-  background-color: green;
+  background-color: #6aa84f;
   display: block;
   border: 10px; 
   margin: 15px;  
 }
 
 .nav{
-  min-height: 300px;
+  min-height: 320px;
   width: 200px;
-  background-color: blue;
+  background-color: #6fa8dc;
   display: inline-block;
   vertical-align: top;
 }
 .main{
   min-height: 200px;
   width: 685px;
-  background-color: red;
+  background-color: #d85151;
   display: inline-block;
   vertical-align: top;
+  padding: 10px;
+  margin-left: 25px;
 }
 
 .sub{
-  min-height: 120px;
-  width: 120px;
-  margin:10px;
-  padding:35px;
-  background-color: yellow;
+  min-height: 240px;
+  width: 190px;
+  margin: 20px 10px 10px 10px;
+  background-color: #ffd966;
   display: inline-block;
 }
+
 .adv{
   min-height: 120px;
   width: 610px;
-  background-color: purple;
-  vertical-align: top;
-  margin-bottom: 45px;
+  background-color: rgb(148, 26, 148);
+  margin: 5px 5px 5px 40px;
+  vertical-align: center;
 }
 
 .App-logo {
