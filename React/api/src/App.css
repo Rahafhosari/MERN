@@ -1,7 +1,16 @@
 .App {
+  width: fit-content;
+  text-align: center;
+  border: 1px dashed rgb(92, 36, 36);
+}
+.apiFetch{
+  background-color:#f14444;
+  box-shadow: 2px 3px #c45959;
   text-align: center;
 }
-
+.box{
+  text-align: center;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
