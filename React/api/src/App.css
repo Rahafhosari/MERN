@@ -1,5 +1,4 @@
 .App {
-  width: fit-content;
   text-align: center;
   border: 1px dashed rgb(92, 36, 36);
 }
@@ -10,6 +9,7 @@
 }
 .box{
   text-align: center;
+
 }
 .App-logo {
   height: 40vmin;
