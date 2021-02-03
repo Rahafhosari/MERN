@@ -1,37 +1,14 @@
-import React, { useState } from 'react';
+import react, { useState } from 'react';
 
-const Tabs = (tab,content) => {
-    const tabs = [
-        {tab:"Tab 1",content:"Hello There! You're in tab one."},
-        {tab:"Tab 2",content:"You moved,You're in tab two."},
-        {tab:"Tab 1",content:"Okay this is the last Tab...You're in tab one."}
-    ]
-     const [state, setState] = useState({
-        content:"",   
-        color:"",
-        id:""
-    });  
+const Tabs = (props) => {
+    const tabs = ["Hello There! You're in tab one.","You moved,You're in tab two.","Okay this is the last Tab...You're in tab one."]
 
-    const onClickHandler = (e,index) => {
-        setState({
-            content:tabs[index].content,
-            color:"olivegreen",
-            id:index
-        })
-    }
-    return (
-        <div>
-            {/* display content in tab */}
-            { tabs.map((tab,i)  => { 
-                return
-                <button onClick={(e)=> onClickHandler(e,i)} key={i} {...tab}
-                style={{color:"green",backgroundColor:state.id===i&&state.color}}> {tab.tab}</button> }
-                )
-            }
-
-            <p>{state.content}</p>
-        </div>
+    const onClickHandler = (e,item) => {props.tabs(item);}
+    
+    return(
+    tabs.map( (item, index) => {
+        return <button key={ index } onClick={ e => onClickHandler(e, item) }>{ "Tab " +  (index + 1)}</button>
+    })
     )
 }
-
 export default Tabs;
