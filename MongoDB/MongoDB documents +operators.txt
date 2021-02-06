@@ -1,0 +1,54 @@
+MongoDB 
+CREATE
+db.COLLECTION_NAME.insert({YOUR_JSON_DOCUMENT})  
+exp:db.ninjas.insert({name: "Trey", belt: "black", status: "awesome"})
+
+READ
+db.COLLECTION_NAME.find({YOUR_QUERY_DOCUMENT})
+exp:db.ninjas.find({name: "Trey"})
+
+FIND ALL
+db.ninjas.find({}).pretty()  
+db.ninjas.find().pretty()
+
+(.pretty() displays it in a readable way)
+
+REMOVE
+db.COLLECTION_NAME.remove({YOUR_QUERY_DOCUMENT}, BOOLEAN)
+db.ninjas.remove({belt: "yellow"})
+db.ninjas.remove({belt: "yellow"}, false) 
+//if boolean is true => the remove will only remove the first document that match the query
+
+UPDATE
+db.COLLECTION_NAME.update({QUERY}, {FIELDS_TO_UPDATE}, {OPTIONS})  
+db.ninjas.update({name: "Trey"}, {$set: {location: "Mountain View"}})
+
+NOTE:
+db.ninjas.update({name: "Trey"}, {location: "Mountain View"}) //this will overwrite the whole query only for the fisrt document to match
+
+OPERATORS (Documentation: https://docs.mongodb.com/manual/reference/operator/)
+
+exp:number of students is greater than 15
+db.dojos.find({number_of_students: {$gt: 15}})
+
+$gt (greater than)
+$gte (greater than or equal to)
+$lt (less than)
+$lte (less than or equal to)
+$in (in array)
+
+$push 
+//pushes a new value in the interests array
+db.students.update({_id: ObjectId("5463d871a6a96d5ed6252f4d")}, {$push: {interests: 'snowboarding'}})
+
+$pop (removes by location)
+db.COLLECTION.update({QUERY}, {$pop: {array_key: (1 or -1)}})
+  copy
+Use 1 for the last item in the array, -1 for the first item.
+
+$addToSet
+only adds to the specified array
+
+$pull (remove all instances of VALUE from the documents)
+db.COLLECTION.update({QUERY}, {$pull: {array_key: VALUE}})
+
