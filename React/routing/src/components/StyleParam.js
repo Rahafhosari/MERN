@@ -1,9 +1,7 @@
 import React from 'react'
 
 const StyleParam = (props) => {
-    {{ var x = isNaN(props.var) 
-        ? "word" : "number"
-    }}
+    {{ var x = isNaN(props.var) ? "word" : "number"}}
     const Style = {
         background : props.color1,
         color : props.color2
