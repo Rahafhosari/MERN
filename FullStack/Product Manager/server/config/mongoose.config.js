@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/ProductSchema", {
+mongoose.connect("mongodb://localhost/crmdb", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
