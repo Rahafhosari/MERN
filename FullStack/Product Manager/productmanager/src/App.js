@@ -3,7 +3,7 @@ import {Router} from "@reach/router";
 
 import ProductForm from './components/ProductForm';
 import ProductsList from './components/ProductsList';
-
+import ProductDetails from './components/ProductDetails'; 
 
 
 function App() {
@@ -11,10 +11,12 @@ function App() {
     <div className="App">
       <Router>
       <ProductForm path="/" />
+      <ProductDetails path="product/:id" />
       </Router>
-      <ProductsList path="/" />
+      <ProductsList />
     </div>
   );
 }
 
 export default App;
+

@@ -7,14 +7,14 @@ module.exports.index = (request, response) => {
 }
 
 //Methods
-    //Find All Products
+        //Find All Products
 module.exports.getAllProducts = (request, response) => {
     Product.find({})
         .then(products => response.json(products))
         .catch(err => response.json(err))
 }
 
-    //Create Product
+        //Create Product
 module.exports.createProduct = (request, response) => {
     const { title, price, description} = request.body;
     Product.create({
@@ -25,6 +25,13 @@ module.exports.createProduct = (request, response) => {
     // Product.create(request.body)
         .then(product => response.json(product))
         .catch(err => response.json(err));
+}
+
+        //Get Product by Id
+module.exports.getProductById = (request, response) => {
+    Product.findOne({_id:request.params.id})
+        .then(product => response.json(product))
+        .catch(err => response.json(err))
 }
 
 
