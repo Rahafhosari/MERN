@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import {Router} from "@reach/router";
 
 import ProductForm from './components/ProductForm';
@@ -10,10 +11,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <ProductForm path="/" />
-      <ProductDetails path="product/:id" />
+        <ProductForm path="/" />
+        <ProductDetails path="product/:id" />
       </Router>
-      <ProductsList />
+      {/* <ProductsList /> */}
     </div>
   );
 }

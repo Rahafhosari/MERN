@@ -13,21 +13,21 @@ const ProductsList = () => {
     },[])
     
     return (
-        <div className="container">
+        <div className="container1">
             <h2>This is a List of All Products: </h2>
             <div className="row">
-                <div className="col-4">
+                <div className="col">
                     <p>Title</p>
                 </div>
-                <div className="col-4">
+                {/* <div className="col-4">
                     <p>Price</p>
                 </div>
                 <div className="col-4">
                     <p>Description</p>
                 </div>
                 <div className="col">
-                    {/* <div key={index}>{item.title}: {item.price}, {item.description}</div> */}
-                </div>
+                    <div key={index}>{item.title}: {item.price}, {item.description}</div> 
+                </div> */}
             </div>
             {products.length > 0 && products.map((item,index)=>
                 {
@@ -41,12 +41,12 @@ const ProductsList = () => {
                                 </Link>
                                 </p>
                             </div>
-                            <div className="col">
+                            {/* <div className="col">
                                 <p>{item.price}</p>
                             </div>
                             <div className="col">
                                 <p>{item.description}</p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     )

@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
+
+import ProductsList from '../components/ProductsList';
+
 
 
 export default () => {
@@ -10,13 +13,25 @@ export default () => {
     const [description, setDescription] = useState();
     const [errors, setErrors] = useState([])
 
+    const [product, setProduct] = useState([]);
+    const [loaded, setLoaded] = useState(false);
+    
+    useEffect(()=>{
+        axios.get('http://localhost:8000/api/allProducts')
+            .then(res=>{
+                setProduct(res.data);
+                setLoaded(true);
+            });
+    },[])
+
+
     //handler when the form is submitted
     const onSubmitHandler = e => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/createProduct', {
-            title,
-            price,
-            description
+        axios.post("http://localhost:8000/api/createProduct", {
+            title: title,
+            price: price,
+            description: description,
         })
             .then(() => navigate ("/"))
             .catch(err=> {
@@ -63,6 +78,9 @@ export default () => {
                     </fieldset>
                 </div>
             </div>
-    </div>
+                <div className="col-12">
+                    {loaded && <ProductsList product={product} />}
+                </div>
+        </div>
     )
 }
