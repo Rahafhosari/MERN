@@ -3,8 +3,15 @@ import axios from 'axios';
 import { Link, navigate } from '@reach/router';
 
 
-const ProductsList = () => {
+//const ProductsList = (props) => {
+export default props => {
     const [products, setProducts] = useState([])
+    
+    //for delete process
+    const [product, setProduct] = useState([])
+
+    //For deleting a product
+    const { removeFromDom } = props;
 
     useEffect( () => {
         axios.get('http://localhost:8000/api/allProducts')
@@ -12,6 +19,14 @@ const ProductsList = () => {
             .catch(error => console.log("There was an issue: ", error))
     },[])
     
+    //For the delete button
+    const deleteProduct = (productId) => {
+        axios.delete('http://localhost:8000/api/product/' + productId)
+            .then(res => {
+                removeFromDom(productId)
+            })
+    }
+
     return (
         <div className="container1">
             <h2>This is a List of All Products: </h2>
@@ -41,6 +56,11 @@ const ProductsList = () => {
                                 </Link>
                                 </p>
                             </div>
+                            <div className="col">
+                            <button onClick={(e)=>{deleteProduct(product._id)}} className="btn btn-danger btn-sm">
+                                Delete
+                            </button>
+                            </div>
                             {/* <div className="col">
                                 <p>{item.price}</p>
                             </div>
@@ -57,5 +77,5 @@ const ProductsList = () => {
     )
 }
 
-export default ProductsList;
+// export default ProductsList;
 

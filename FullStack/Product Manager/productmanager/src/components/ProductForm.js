@@ -25,7 +25,6 @@ export default () => {
             });
     },[])
 
-
     //handler when the form is submitted
     const onSubmitHandler = e => {
         e.preventDefault();
@@ -45,6 +44,11 @@ export default () => {
                 // Set Errors
                 setErrors(errorArray);
             })
+    }
+
+    //Delete Product from the List of All Products
+    const removeFromDom = productId => {
+        setProduct(product.filter(product => product._id != productId));
     }
     
     return (
@@ -79,8 +83,10 @@ export default () => {
                     </fieldset>
                 </div>
             </div>
+            
+            {/* Display List of All Products in the same page of the from */}
                 <div className="col-12">
-                    {loaded && <ProductsList product={product} />}
+                    {loaded && <ProductsList product={product} removeFromDom={removeFromDom} />}
                 </div>
         </div>
     )
