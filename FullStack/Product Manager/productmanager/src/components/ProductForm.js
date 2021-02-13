@@ -10,9 +10,10 @@ export default () => {
     //keep track of what is being typed via useState hook
     const [title, setTitle] = useState(""); 
     const [price, setPrice] = useState();
-    const [description, setDescription] = useState();
+    const [description, setDescription] = useState("");
     const [errors, setErrors] = useState([])
 
+    //To display list of all products near the add form
     const [product, setProduct] = useState([]);
     const [loaded, setLoaded] = useState(false);
     
