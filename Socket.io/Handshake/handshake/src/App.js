@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import './App.css';
- 
+
 function App() {
   // notice that we pass a callback function to initialize the socket
   // we don't need to destructure the 'setSocket' function since we won't be updating the socket state
   const [socket] = useState(() => io(':8000'));
- 
+
   useEffect(() => {
     // we need to set up all of our event listeners
     // in the useEffect callback function
     console.log('Is this running?');
-    socket.on("event_from_client", data => console.log(data));
+    socket.on("Welcome Home Client", data => console.log(data));
 
     // note that we're returning a callback function
     // this ensures that the underlying socket will be closed if App is unmounted
