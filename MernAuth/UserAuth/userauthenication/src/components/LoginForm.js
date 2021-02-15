@@ -28,34 +28,38 @@ const styles = {
 }
 
 const LoginForm = () => {
-    import React, {useState} from 'react'
-import axios from 'axios';
-import { Link, navigate } from '@reach/router';
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [errors, setErrors] = useState([])
 
-import {
-    Paper,
-    FormControl,
-    InputLabel,
-    OutlinedInput,
-    Button,
-    MenuItem,
-    Select,
+    //Material-UI Button
+    const useStyles = makeStyles((theme) => ({
+        margin: {
+        margin: theme.spacing(1),
+        },
+        extendedIcon: {
+        marginRight: theme.spacing(1),
+        },
+    }));
+    const classes = useStyles();
 
-} from '@material-ui/core';
-
-import { makeStyles } from '@material-ui/core/styles';
-
-const styles = {
-    paper: {
-        width: "20rem", padding: "1rem"
-    },
-    input: {
-        marginBottom: "1rem"
-    },
-    button: {
-        width: "100%"
+    const onSubmitHandler = e => {
+        e.preventDefault();
+        axios.post("http://localhost:8000/api/author", {
+            email: email,
+            password: password
+        })
+            .then(() => navigate("/"))
+            .catch(err => {
+                const errorResponse = err.response.data.errors;
+                const errorArray = [];
+                for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
+                    errorArray.push(errorResponse[key].message)
+                }
+                // Set Errors
+                setErrors(errorArray);
+            })
     }
-}
     return (
         <div className="container">
             <div className="row">
