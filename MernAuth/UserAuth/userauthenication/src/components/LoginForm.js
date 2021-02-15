@@ -64,8 +64,7 @@ const LoginForm = () => {
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <p><Link to="/"> Home </Link></p>
-                    <p><h3>Register New User:&nbsp;</h3>
+                    <p><h3>Login&nbsp;</h3>
                         <p>
                         {
                             errors.map((err, index) => <small key={index} style={{color:"red"}}>{err}</small>)
@@ -93,7 +92,12 @@ const LoginForm = () => {
                     </form>
                     </Paper>
                 </div>
-            </div>            
+            </div> 
+            <div className="row">
+                <Link to={"/success"}>
+                    All Books
+                </Link>
+            </div>           
         </div>
     )
 }

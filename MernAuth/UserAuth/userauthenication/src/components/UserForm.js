@@ -10,7 +10,6 @@ import {
     Button,
     MenuItem,
     Select,
-
 } from '@material-ui/core';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -71,8 +70,7 @@ const UserForm = () => {
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <p><Link to="/"> Home </Link></p>
-                    <p><h3>Register New User:&nbsp;</h3>
+                    <p><h3>Register New User&nbsp;</h3>
                         <p>
                         {
                             errors.map((err, index) => <small key={index} style={{color:"red"}}>{err}</small>)
@@ -123,7 +121,7 @@ const UserForm = () => {
                     </form>
                     </Paper>
                     <div class="col-6">
-                        <Link to="/login">
+                        <Link to={"/login"}>
                             Already A User, Login Now
                         </Link>
                     </div>
