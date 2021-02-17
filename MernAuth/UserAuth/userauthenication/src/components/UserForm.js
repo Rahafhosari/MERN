@@ -14,6 +14,7 @@ import {
 
 import { makeStyles } from '@material-ui/core/styles';
 
+
 const styles = {
     paper: {
         width: "20rem", padding: "1rem"
@@ -26,6 +27,7 @@ const styles = {
     }
 }
 
+
 const UserForm = () => {
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
@@ -33,6 +35,29 @@ const UserForm = () => {
     const [password, setPassword] = useState("")
     const [country, setCountry] = useState("")
     const [errors, setErrors] = useState([])
+
+    const onSubmitHandler = e => {
+        e.preventDefault();
+        axios.post('http://localhost:8000/api/registeruser', {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
+            // country: country,
+        })
+            .then(res => navigate("/success"))
+            // .then(res=>console.log(res))
+            .catch(err=>console.log(err))
+            // .catch(err => {
+            //     const errorResponse = err.response.data.errors;
+            //     const errorArray = [];
+            //     for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
+            //         errorArray.push(errorResponse[key].message)
+            //     }
+            //     // Set Errors
+            //     setErrors(errorArray);
+            // })
+    }
 
     //Material-UI Button
     const useStyles = makeStyles((theme) => ({
@@ -44,27 +69,6 @@ const UserForm = () => {
         },
     }));
     const classes = useStyles();
-
-    const onSubmitHandler = e => {
-        e.preventDefault();
-        axios.post("http://localhost:8000/api/author", {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: password,
-            country: country
-        })
-            .then(() => navigate("/"))
-            .catch(err => {
-                const errorResponse = err.response.data.errors;
-                const errorArray = [];
-                for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
-                    errorArray.push(errorResponse[key].message)
-                }
-                // Set Errors
-                setErrors(errorArray);
-            })
-    }
 
     return (
         <div className="container">
@@ -86,21 +90,21 @@ const UserForm = () => {
                         {/* Using Material-UI  */}
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel>First Name</InputLabel>
-                            <OutlinedInput type="text"onChange={(e)=>setFirstName(e.target.value)}/>
+                            <OutlinedInput type="text"onChange={(e)=>setFirstName(e.target.value)} value={firstName}/>
                         </FormControl>
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel>Last Name</InputLabel>
-                            <OutlinedInput type="text"onChange={(e)=>setLastName(e.target.value)}/>
+                            <OutlinedInput type="text"onChange={(e)=>setLastName(e.target.value)} value={lastName}/>
                         </FormControl>
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel>Email</InputLabel>
-                            <OutlinedInput type="email"onChange={(e)=>setEmail(e.target.value)}/>
+                            <OutlinedInput type="email"onChange={(e)=>setEmail(e.target.value)} value={email}/>
                         </FormControl>
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel>Password</InputLabel>
-                            <OutlinedInput type="text"onChange={(e)=>setPassword(e.target.value)}/>
+                            <OutlinedInput type="password"onChange={(e)=>setPassword(e.target.value)} value={password}/>
                         </FormControl>
-                        <FormControl variant="outlined" className={classes.formControl}>
+                        {/* <FormControl variant="outlined" className={classes.formControl}>
                             <InputLabel id="demo-simple-select-outlined-label">Country</InputLabel>
                             <Select
                             labelId="demo-simple-select-outlined-label"
@@ -114,16 +118,21 @@ const UserForm = () => {
                             </MenuItem>
                             <MenuItem value={10}>From Data Base</MenuItem>
                             </Select>
-                        </FormControl>
+                        </FormControl> */}
                         <Button type="submit" variant="contained" color="primary" style={{marginLeft: "10px"}}>
                             Register
                         </Button>
                     </form>
                     </Paper>
-                    <div class="col-6">
+                    <div className="col-6">
                         <Link to={"/login"}>
                             Already A User, Login Now
                         </Link>
+                        Rendered HTML
+                        <button class="ui small green button">
+                        <i class="download icon"></i>
+                        Download
+                        </button>
                     </div>
                 </div>
             </div>            
@@ -131,4 +140,4 @@ const UserForm = () => {
     )
 }
 
-export default UserForm
+export default UserForm;

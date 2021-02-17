@@ -26,12 +26,12 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Password is required"],
         minlength: [8, "Password must be 8 characters or longer"]
-    },
-
-    country: {
-        type: String,
-        required: [true]
     }
+
+    // country: {
+    //     type: String,
+    //     required: [true]
+    // }
     }, {timestamps: true});
 
 UserSchema.pre('save', function(next) {
@@ -41,4 +41,7 @@ UserSchema.pre('save', function(next) {
         next();
     });
 });
+
+
 module.exports.User = mongoose.model('User', UserSchema);
+

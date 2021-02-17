@@ -12,8 +12,8 @@ function App() {
     <div className="App">
       <Router>
         <UserForm path="/" />
-        <Books path="/success" />
         <LoginForm path="/login" />
+        <Books path="/success" />
       </Router>
     </div>
   );

@@ -45,20 +45,21 @@ const LoginForm = () => {
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        axios.post("http://localhost:8000/api/author", {
-            email: email,
-            password: password
+        axios.post("http://localhost:8000/api/login", {
+            email,
+            password
         })
-            .then(() => navigate("/"))
-            .catch(err => {
-                const errorResponse = err.response.data.errors;
-                const errorArray = [];
-                for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
-                    errorArray.push(errorResponse[key].message)
-                }
-                // Set Errors
-                setErrors(errorArray);
-            })
+            .then(res => navigate("/success"))
+            .catch(err=>console.log(err))
+            // .catch(err => {
+            //     const errorResponse = err.response.data.errors;
+            //     const errorArray = [];
+            //     for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
+            //         errorArray.push(errorResponse[key].message)
+            //     }
+            //     // Set Errors
+            //     setErrors(errorArray);
+            // })
     }
     return (
         <div className="container">
@@ -80,15 +81,16 @@ const LoginForm = () => {
                         {/* Using Material-UI  */}
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel>Email</InputLabel>
-                            <OutlinedInput type="email"onChange={(e)=>setEmail(e.target.value)}/>
+                            <OutlinedInput type="email"onChange={(e)=>setEmail(e.target.value)} value={email}/>
                         </FormControl>
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel>Password</InputLabel>
-                            <OutlinedInput type="text"onChange={(e)=>setPassword(e.target.value)}/>
+                            <OutlinedInput type="password"onChange={(e)=>setPassword(e.target.value)} value={password}/>
                         </FormControl>
-                        <Button type="submit" variant="contained" color="primary" style={{marginLeft: "10px"}}>
+                        {/* <Button type="submit" variant="contained" color="primary" style={{marginLeft: "10px"}}>
                             Login
-                        </Button>
+                        </Button> */}
+                        <input type="submit" value="Login"/>
                     </form>
                     </Paper>
                 </div>
