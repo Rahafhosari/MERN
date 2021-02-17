@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 1vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,6 +27,26 @@
 .App-link {
   color: #61dafb;
 }
+
+/* Added by Rahaf */
+fieldset{
+  border: 1px solid rgb(61, 61, 148);
+  width: 440px;
+  text-align: center;
+}
+
+.form-control{
+  width: 240px;
+  box-shadow: 2px 2px rgb(155, 144, 144);
+}
+
+.btn{
+  box-shadow: 2px 3px rgb(60, 60, 83);
+}
+:placeholder-shown{
+  font-style: italic;
+}
+/* ************************ */
 
 @keyframes App-logo-spin {
   from {
