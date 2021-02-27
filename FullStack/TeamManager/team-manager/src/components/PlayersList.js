@@ -3,10 +3,10 @@ import axios from 'axios';
 import { Link, navigate } from '@reach/router';
 import DeleteButton from '../components/DeleteButton';
 
-
 const PlayersList = () => {
     const [players, setPlayers] = useState([])
 
+    //Get List of All Players
     useEffect( () => {
         axios.get('http://localhost:8000/api/allplayers')
             .then(response => setPlayers((response.data)))
@@ -15,16 +15,19 @@ const PlayersList = () => {
 
     const removeFromDom = (playerId,playerName) => {
         setPlayers(players.filter(player => player._id != playerId))
-        setPlayers(players.filter(player => player.name != playerName))
-        alert(`${playerName} has been deleted`);
+        // setPlayers(players.filter(player => player.name != playerName))
+        alert(`Are you sure you want to remove "${playerName}?"`);
     }
 
-   
+
     return (
         <div className="container">
             <div className="col-12">
-                    <p>List | <Link to="/addplayer"> Add Player </Link></p>
-                </div>
+                <p>ManagePlayers | <Link to="/status/game/1">Manage Player Status</Link></p>
+            </div>
+            <div className="col-12">
+                <p>List | <Link to="/addplayer"> Add Player </Link></p>
+            </div>
             <table class="table table-hover">
                 <thead>
                     <tr>

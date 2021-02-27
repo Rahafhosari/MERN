@@ -10,7 +10,10 @@ const PlayerSchema = new mongoose.Schema({
     position: {
         type: String,
         optional: [true]
+    },
+    playerStatus: {
+        type: String,
+        default: "Undecided"
     }
-    
 }, { timestamps: true });
 module.exports.Player = mongoose.model('Player', PlayerSchema);

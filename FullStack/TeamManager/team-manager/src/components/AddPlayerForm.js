@@ -38,16 +38,31 @@ const AddPlayerForm = () => {
             })
     }
 
-    //Button Disabled
-    const isDisabled = () => {
-        return false;
-    }
+    //Button is enabled when length is greated than 2
+    const [formError, setFormError] = useState(" ")
+    const isEnabled = name.length > 1;
+    // const isEnabled = e =>{
+    //     if (e.target.value.length < 1)
+    //         setFormError("Player Name is required")
+    //     else if (e.target.value.length < 2)
+    //         setFormError("Player Name must be at least 2 characters long")
+    //     else{
+    //         setName(e.target.value);
+    //         setFormError("");
+    //     }
+    // }
+        
+    
     return (
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <p><Link to="/players/list"> Home </Link></p>
+                    <p>ManagePlayers | <Link to="/status/game/1">Manage Player Status</Link></p>
+                </div>
+                <div className="col-12">
+                    <p><Link to="/players/list"> List </Link> | Add Player</p>
                     <p><h3>Add a new Player:&nbsp;</h3>
+                    <p style={{color:"red"}}>{formError}</p>
                         <p>
                         {errors.map((err, index) => <small key={index} style={{color:"red"}}>{err}</small>)}
                         </p>
@@ -61,7 +76,7 @@ const AddPlayerForm = () => {
                     <form onSubmit={ onSubmitHandler }>
                         <div className="form-group">
                             <label>Name:</label>
-                            <input onChange={(e)=>setName(e.target.value)} type="text" className="form-control" placeholder="player name" required/>
+                            <input onChange={(e)=>setName(e.target.value)} type="text" className="form-control" placeholder="player name" required/>  
                         </div>
                         <div className="form-group">
                             <label>Position:</label>
@@ -70,9 +85,10 @@ const AddPlayerForm = () => {
                         <div className="form-group text-right">
                             <button onClick={()=>navigate("/")} type="button" className="btn btn-secondary btn-sm">Cancel</button>
                             <button className="btn btn-primary btn-sm" style={{marginLeft: "10px"}}
-                            disabled={isDisabled}
+                            disabled={!isEnabled}
                             >
-                                Submit</button>
+                                Submit
+                            </button>
                         </div>
                     </form>
                     </Paper>
