@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import './App.css';
 import Tabs  from './Components/Tabs';
 import TabsDisplay  from './Components/TabsDisplay';
-
+import $ from 'jquery';
 
 function App() {
   const [currentTab, setcurrentTab] = useState("");
   
   const newTabContent = (content) => {
-  setcurrentTab(content);
+    setcurrentTab(content);
 }
-
   return (
     <div className="App">
         <h1>Tabs</h1>
