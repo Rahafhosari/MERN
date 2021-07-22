@@ -1,26 +1,51 @@
 import React, { useState } from 'react';
 
 const MessageForm = (props) => {
-    const [msg, setMsg] = useState("");
-    
+    const [color, setColor] = useState("");
+    const[height , setHeight] = useState()
+    const[width , setWidth] = useState()
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.youveGotMail( msg );
+        props.youveGotMail( color , height , width);
+        setColor("");
+        setHeight(0);
+        setWidth(0);
+
+    };
+
+    // Button Style
+    const btnStyle = {
+        background: "Green",
+        color: "#fff",
     };
 
     return (
+        <>
         <form onSubmit={ handleSubmit }>
             <h1>Set Message</h1>
             <textarea
-                rows="4"
-                cols="50"
-                placeholder="Enter your message here"
-                onChange={ (e) => setMsg(e.target.value)}
-                value={ msg }
+                placeholder="Enter your box color"
+                onChange={ (e) => setColor(e.target.value)}
+                value={ color }
             ></textarea>
-            <input type="submit" value="Send Message" />
+            <h2>Height</h2>
+            <input type="number" onChange = { (e) => setHeight(e.target.value)}
+                placeholder="Enter box height"
+                value={ height } />
+
+            <h2>Width</h2>
+            <input type="number" onChange = { (e) => setWidth(e.target.value)}
+                placeholder="Enter box width"
+                value={ width } />
+            <br/>
+            <input style={btnStyle} type="submit" value="Send Message" />
         </form>
+        {/* <p>{ msg }</p>  */}
+        </>
     );
+
+
 };
     
 export default MessageForm;

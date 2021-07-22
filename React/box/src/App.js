@@ -5,16 +5,17 @@ import MessageForm from './components/MessageForm';
 import MessageDisplay from './components/MessageDisplay';
 
 function App() {
-  const [currentMsg, setCurrentMsg] = useState([]);
+  const [box, setBox] = useState([]);
   
-  const youveGotMail = ( newMessage ) => {
-    setCurrentMsg( currentMsg.concat(newMessage) );
+  const boxgenerator = ( color, height, width ) => {
+    setBox( box.concat({color,height,width}) );
   }
   
 return (
     <>
-        <MessageForm youveGotMail={ youveGotMail } />
-        <MessageDisplay message={ currentMsg } />
+      <MessageForm youveGotMail={ boxgenerator } />
+      <MessageDisplay message={ box } />
+    
     </>
 );
 }
