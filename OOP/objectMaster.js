@@ -34,13 +34,26 @@ console.log(pkmnIds);
 const pkmIdsdivbythree = pokémon.filter( p => ((p.id)%3 === 0))
 console.log(pkmIdsdivbythree);
 
-//an array with just the names of the pokémon
+//an array of pokémon objects that are "fire" type
 const pkmListFire = pokémon.filter((p) => p.types.includes("fire"))
 console.log(pkmListFire);
+
+// an array of pokémon objects that have more than one type
+const pkmListMoreThanOneType = pokémon.filter(p => p.types.length > 1)
+console.log(pkmListMoreThanOneType);
+
+//an array with just the names of the pokémon
+const pkmListNames = pokémon.map(p => p.name)
+console.log(pkmListNames);
 
 //an array with just the names of pokémon with an id greater than 99
 const pkmnIdsgreater = pokémon.filter((p) => (p.id) > 99)
 console.log(pkmnIdsgreater);
+
+    //for the ubove if we use map then it'll return a boolean of true and false whether this pokemon id is 
+    // greater than 99 or not
+    const pkmnIdsgreater99 = pokémon.map((p) => (p.id) > 99)
+    console.log(pkmnIdsgreater99);
 
 //an array with just the names of the pokémon whose only type is poison
 const pkmListnamey = pokémon.filter((p) => p.types.includes("poison") && p.types.length == 1).map( p=> p.name);
@@ -53,9 +66,6 @@ console.log(pkmListFirst);
 //a count of the number of pokémon that are "normal" type
 var count = 0;
 const pkmCount = pokémon.filter((p) => p.types.includes("normal"))
-count += pkmCount.length;
 console.log(pkmCount);
+count += pkmCount.length;
 console.log(count);
-
-
-

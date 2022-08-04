@@ -15,7 +15,6 @@ return (
     <>
       <MessageForm youveGotMail={ boxgenerator } />
       <MessageDisplay message={ box } />
-    
     </>
 );
 }

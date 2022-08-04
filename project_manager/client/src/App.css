@@ -1,0 +1,166 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.start-btn{
+  background-color: rgb(250, 250, 150);
+}
+
+.move-btn{
+  background-color: rgb(173, 255, 47);
+}
+
+.remove-btn{
+  background-color: rgb(201, 100, 100);
+}
+
+.backlog{
+  grid-column: 1;
+  border-right: 1px solid black;
+}
+
+.completed{
+  grid-column: 3;
+  border-left: 1px solid black;
+}
+
+.in-progress{
+  grid-column: 2;
+}
+
+.backlog > .column-title {
+  background-color: #83d7ee
+}
+
+.in-progress > .column-title {
+  background-color: rgb(250, 250, 150);
+}
+
+.completed > .column-title {
+  background-color: rgb(173, 255, 47);
+}
+
+.bars{
+  overflow: scroll;
+  padding: 5%;
+  max-height: 430px;
+}
+
+.blueBtn{
+  background-color: #83d7ee
+}
+
+.projects-table{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid black;
+  min-height: 500px;
+}
+
+.column-title{
+  border-bottom: 1px solid black;
+  display: flow-root;
+}
+
+.project-bar{
+  border: 1px solid black;
+  margin-bottom: 5%;
+  padding-bottom: 5%;
+}
+
+.cloumn {
+  /* border: 1px solid black; */
+}
+
+.create-new-project{
+  padding: 3%;
+  border: 1px solid black;
+  min-height: 400px;
+}
+
+.content{
+  padding: 5%;
+}
+
+.addBtnDiv {
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  height: 40px;
+}
+
+.add {
+  float: left;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+td {
+  text-align: left;
+  padding-bottom: 10%;
+}
+
+tr {
+  margin-bottom: 5%;
+}
+
+table {
+  width: 60%;
+}
+
+.text {
+  width: 20%;
+}
+
+.td-input {
+  width: 100%;
+}
+
+.plan {
+  width: 60%;
+  float: left;
+}
+
+.form {
+  padding-left: 30%;
+}
+
+a {
+  color:'blue';
+  margin-left: 80%;
+}

@@ -18,7 +18,6 @@ function App() {
     <div className="App">
       <NewForm onSend= {sendMsg} />
       <NewDisplay message={ currentMsg }/>
-      
     </div>
   );
 }
